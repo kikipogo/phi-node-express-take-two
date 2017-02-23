@@ -15,12 +15,23 @@ app.get('/fish', function(req, res){
 });
 
 app.post('/fish/new', function(req, res){
+
   var newFish = req.body;
-  if(newFish.name !== ''){
+  var contains = false;
+
+  fishiesList.forEach(function(fishPoop){
+    if(fishPoop.name ==  newFish.name){
+      contains = true;
+    }
+  })
+  
+  if(newFish.name !== '' && !contains){
   console.log('new fish is:', newFish);
   fishiesList.push(newFish);
   res.sendStatus(200);
-} else {
+}
+
+else {
   res.sendStatus(400);
   console.log('else statement');
 }

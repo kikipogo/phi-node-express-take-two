@@ -38,7 +38,7 @@ function getFishData(){
         getFishData();
       },
       error: function(error){
-      alert('ERROR: You did not enter a fish!');
+      alert('ERROR: Please Enter A New Fish Name!');
     }
     });
   });
